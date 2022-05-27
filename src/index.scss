@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import './styles/global.scss';
+
+/* variable */
+:root {
+  --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  --font-base: 'Outfit', sans-serif;
+  --body-bg: rgb(241, 241, 241);
+  --white: #FFFFFF;
+}
+
+/* reset */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+#__next,
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 100%;
+}
+#root {
+  background-color: var(--body-bg);
+}
+
+body {
+  margin: 0px;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+html,
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: var(--font-base);
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container-landing-page {
+  display: block;
+  width: 450px;
+  margin: 0px auto;
+  background: var(--white);
+  // padding: 0px 0px 110px;
+  min-height: 100%;
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
+}
