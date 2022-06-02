@@ -6,9 +6,11 @@ const OtherMenu = ({ icon, label, path }) => {
     minWidth: 400
   });
 
+  const width = (100 / 3) - 2
+
   return (
     <Pressable
-      w={isMaxScreen ? '135px' : '105px'}
+      w={`${width}%`}
       h={isMaxScreen ? '135px' : '105px'}
       borderWidth="1px"
       borderStyle="solid"

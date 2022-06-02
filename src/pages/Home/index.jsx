@@ -19,13 +19,13 @@ import {
   Plus
 } from "react-bootstrap-icons";
 
-import OtherMenu from "./components/OtherMenu";
+import { MainMenu, OtherMenu } from "./components";
 import { HomeOthersMenu } from "@Data/Menus";
 
 const Home = () => {
   return (
     <div className="main-bg">
-      <Box alignItems="center" px="15px" mt="10px" w="full">
+      <Box alignItems="center" px="15px" my="10px" w="full">
         <Input
           active
           w="full"
@@ -51,7 +51,7 @@ const Home = () => {
           }}
         />
       </Box>
-      <ScrollView h="calc(100vh - 170px)">
+      <ScrollView h="calc(100vh - 50px)" pb="76px">
         <Box px="15px" mt="20px">
           <HStack space="10px">
             <Avatar
@@ -105,83 +105,17 @@ const Home = () => {
         </Box>
         <Box pl="15px" mt="30px">
           <VStack space="10px">
-            <HStack
-              space={10}
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Text
-                color="text.800"
-                fontWeight="700"
-                fontSize="20px"
-                lineHeight="25px"
-              >
-                Transaksi
-              </Text>
-              <View
-                py="16px"
-                pr="40px"
-                pl="50px"
-                bgColor="info.100"
-                borderLeftRadius="48px"
-              >
-                <JournalArrowDown size={48} color="#0EA5E9" />
-              </View>
-            </HStack>
-            <HStack
-              space={10}
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Text
-                color="text.800"
-                fontWeight="700"
-                fontSize="20px"
-                lineHeight="25px"
-              >
-                Pengambilan
-              </Text>
-              <View
-                py="16px"
-                pr="40px"
-                pl="50px"
-                bgColor="success.100"
-                borderLeftRadius="48px"
-              >
-                <JournalArrowUp size={48} color="#22C55E" />
-              </View>
-            </HStack>
-            <HStack
-              space={10}
-              alignItems="center"
-              justifyContent="space-between"
-            >
-              <Text
-                color="text.800"
-                fontWeight="700"
-                fontSize="20px"
-                lineHeight="25px"
-              >
-                Status
-              </Text>
-              <View
-                py="16px"
-                pr="40px"
-                pl="50px"
-                bgColor="orange.100"
-                borderLeftRadius="48px"
-              >
-                <ClockHistory size={48} color="#F97316" />
-              </View>
-            </HStack>
+            <MainMenu label="Transaksi" bgColor="info.100" icon={<JournalArrowDown size={48} color="#0EA5E9" />} path="/transaksi" />
+            <MainMenu label="Pengambilan" bgColor="success.100" icon={<JournalArrowUp size={48} color="#22C55E" />} path="/pengambilan" />
+            <MainMenu label="Status" bgColor="orange.100" icon={<ClockHistory size={48} color="#F97316" />} path="/status" />
           </VStack>
         </Box>
 
         <Box px="15px" mt="30px">
           {HomeOthersMenu.map((colMenu, index) => (
             <HStack
-              space="7.5px"
-              flexWrap="wrap"
+              space="8px"
+              display="flex"
               key={`col-${index}`}
               mt={index > 0 ? "7.5px" : "0"}
             >
@@ -197,29 +131,27 @@ const Home = () => {
           ))}
         </Box>
       </ScrollView>
-      <Box w="full" h="120px">
-        <Fab
-          renderInPortal={false}
-          bgColor="yellow.300"
-          shadow={2}
-          bottom="50%"
-          right="50%"
-          size="sm"
-          icon={
-            <Plus size={24} />
-          }
-          style={{
-            transform: 'translate(50%, 50%)'
-          }}
-          label="Tambah Transaksi"
-          _text={{
-            color: "black"
-          }}
-          _hover={{
-            shadow: 3
-          }}
-        />
-      </Box>
+      <Fab
+        renderInPortal={false}
+        bgColor="yellow.300"
+        shadow={2}
+        bottom="7%"
+        right="50%"
+        size="sm"
+        icon={
+          <Plus size={24} />
+        }
+        style={{
+          transform: 'translate(50%, 50%)'
+        }}
+        label="Tambah Transaksi"
+        _text={{
+          color: "black"
+        }}
+        _hover={{
+          shadow: 3
+        }}
+      />
     </div>
   );
 };
