@@ -3,7 +3,6 @@ import React, { useRef } from 'react';
 import {
   ArrowLeft,
   Filter,
-  QrCodeScan,
   Search,
   SortDown
 } from 'react-bootstrap-icons';
