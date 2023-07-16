@@ -18,11 +18,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import ActionSheet from "actionsheet-react"
 
-import styles from "./Transaksi.module.scss";
+import styles from "./PelangganDetail.module.scss";
 
 const animals = ["🦁 Lion", "🦊 Fox", "🐻 Bear", "🐼 Panda", "🐵 Monkey"];
 
-const Transaksi = () => {
+const PelangganDetail = () => {
   const navigate = useNavigate();
   const ref = useRef();
 
@@ -151,7 +151,7 @@ const Transaksi = () => {
   const colorType = ["success", "error", "info", "warning"];
   const randomIndex = Math.floor(4 * Math.random()) + 1;
   return (
-    <div className={styles.transaksi}>
+    <div className={styles['pelanggan-detail']}>
       <HStack
         space="63px"
         alignItems="center"
@@ -297,4 +297,4 @@ const Transaksi = () => {
   );
 };
 
-export default Transaksi;
+export default PelangganDetail;

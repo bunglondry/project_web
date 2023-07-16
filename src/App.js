@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { NativeBaseProvider, Text, Box, extendTheme } from "native-base";
+import { NativeBaseProvider } from "native-base";
 
 import {
   Login,
@@ -9,6 +9,7 @@ import {
   Transaksi,
   Pengambilan,
   Status,
+  Pelanggan
 } from "./pages";
 import "./App.scss";
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/pengambilan" element={<Pengambilan />} />
             <Route path="/status" element={<Status />} />
             <Route path="/new-bussiness" element={<NewBussiness />} />
+            <Route path="/pelanggan" element={<Pelanggan />} />
           </Routes>
         </NativeBaseProvider>
       </Router>

@@ -51,7 +51,7 @@ const Home = () => {
           }}
         />
       </Box>
-      <ScrollView h="calc(100vh - 50px)" pb="76px">
+      <ScrollView h="calc(100vh - 60px)" pb="76px">
         <Box px="15px" mt="20px">
           <HStack space="10px">
             <Avatar

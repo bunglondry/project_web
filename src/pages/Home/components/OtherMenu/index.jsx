@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Pressable, Center, Text, useMediaQuery } from "native-base";
 
 const OtherMenu = ({ icon, label, path }) => {
+  console.log({ path });
+  const navigate = useNavigate()
   const [isMaxScreen] = useMediaQuery({
     minWidth: 400
   });
@@ -16,7 +19,7 @@ const OtherMenu = ({ icon, label, path }) => {
       borderStyle="solid"
       borderRadius="4px"
       borderColor="muted.100"
-      onPress={() => {}}
+      onPress={() => navigate(path)}
     >
       <Center w={isMaxScreen ? '135px' : '105px'} h={isMaxScreen ? '135px' : '105px'}>
         {icon}

@@ -1,5 +1,5 @@
-.transaksi {
-  background-image: url('../../data/images/background/transaksi.svg');
+.pelanggan {
+  background-image: url('../../data/images/background/pelanggan.svg');
   background-repeat: no-repeat;
   background-position: top right;
 
@@ -12,5 +12,9 @@
     margin-top: 12px;
     margin-bottom: 12px;
     cursor: move;
+  }
+  
+  &-info {
+    flex-direction: initial;
   }
 }
