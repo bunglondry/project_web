@@ -153,7 +153,7 @@ const PelangganDetail = () => {
           <IconButton
             p="8px"
             icon={<ArrowLeft size="16px" color="#000000" />}
-            onPress={() => navigate('/')}
+            onPress={() => navigate(-1)}
             _hover={{ bg: 'transparent' }}
             _pressed={{ bg: 'transparent' }}
           />

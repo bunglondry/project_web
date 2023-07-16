@@ -1,4 +1,4 @@
-import { Badge, Box, FlatList, HStack, IconButton, Text } from 'native-base';
+import { Badge, Box, FlatList, HStack, IconButton, Pressable, Text } from 'native-base';
 import React, { useRef } from 'react';
 import {
   ArrowLeft,
@@ -124,7 +124,7 @@ const Pelanggan = () => {
           <IconButton
             p="8px"
             icon={<ArrowLeft size="16px" color="#000000" />}
-            onPress={() => navigate('/')}
+            onPress={() => navigate(-1)}
             _hover={{ bg: 'transparent' }}
             _pressed={{ bg: 'transparent' }}
           />
@@ -169,41 +169,43 @@ const Pelanggan = () => {
         px="15"
         data={data}
         renderItem={({ item }) => (
-          <Box borderBottomWidth="1" borderBottomColor="muted.300" py="10px">
-            <HStack justifyContent="space-between" mb="5px">
-              <HStack justifyContent="space-between">
+          <Pressable onPress={() => navigate(`/pelanggan/${item.id}`)}>
+            <Box borderBottomWidth="1" borderBottomColor="muted.300" py="10px">
+              <HStack justifyContent="space-between" mb="5px">
+                <HStack justifyContent="space-between">
+                  <HStack alignItems="center">
+                    <Text
+                      fontSize="sm"
+                      fontWeight="700"
+                      lineHegiht="17.5px"
+                      color="black"
+                      textTransform="uppercase"
+                    >
+                      {item.name}
+                    </Text>
+                  </HStack>
+                </HStack>
+
+                <Badge flexDirection="initial" color>
+                  <Text fontSize="xs" fontWeight="500" lineHeight="18px">
+                    {item.totalTransaction}x transaksi
+                  </Text>
+                </Badge>
+              </HStack>
+
+              <HStack justifyContent="space-between" mb="8px">
                 <HStack alignItems="center">
-                  <Text
-                    fontSize="sm"
-                    fontWeight="700"
-                    lineHegiht="17.5px"
-                    color="black"
-                    textTransform="uppercase"
-                  >
-                    {item.name}
+                  <Text fontSize="sm" lineHegiht="17.5px">
+                    {item.phone}
                   </Text>
                 </HStack>
-              </HStack>
 
-              <Badge flexDirection="initial" color>
-                <Text fontSize="xs" fontWeight="500" lineHeight="18px">
-                  {item.totalTransaction}x transaksi
-                </Text>
-              </Badge>
-            </HStack>
-
-            <HStack justifyContent="space-between" mb="8px">
-              <HStack alignItems="center">
-                <Text fontSize="sm" lineHegiht="17.5px">
-                  {item.phone}
+                <Text color="text.800" fontSize="sm">
+                  {item.price}
                 </Text>
               </HStack>
-
-              <Text color="text.800" fontSize="sm">
-                {item.price}
-              </Text>
-            </HStack>
-          </Box>
+            </Box>
+          </Pressable>
         )}
       ></FlatList>
     </div>
