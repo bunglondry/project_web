@@ -6,3 +6,4 @@ export { default as Pengambilan } from './Pengambilan';
 export { default as Status } from './Status';
 export { default as NewBussiness } from './NewBussiness';
 export { default as Pelanggan } from './Pelanggan';
+export { default as PelangganDetail } from './PelangganDetail';

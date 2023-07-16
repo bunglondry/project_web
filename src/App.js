@@ -9,7 +9,8 @@ import {
   Transaksi,
   Pengambilan,
   Status,
-  Pelanggan
+  Pelanggan,
+  PelangganDetail
 } from "./pages";
 import "./App.scss";
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/status" element={<Status />} />
             <Route path="/new-bussiness" element={<NewBussiness />} />
             <Route path="/pelanggan" element={<Pelanggan />} />
+            <Route path="/pelanggan/:id" element={<PelangganDetail />} />
           </Routes>
         </NativeBaseProvider>
       </Router>
