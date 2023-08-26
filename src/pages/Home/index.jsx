@@ -1,57 +1,56 @@
-import React from "react";
 import {
-  Box,
-  ScrollView,
-  Input,
-  Icon,
   Avatar,
-  HStack,
-  Text,
-  View,
-  VStack,
+  Box,
+  Button,
   Fab,
-} from "native-base";
-import MaterialCommunityIcons from "react-native-vector-icons/dist/MaterialCommunityIcons";
+  HStack,
+  Input,
+  Pressable,
+  ScrollView,
+  Text,
+  VStack,
+  View,
+} from 'native-base';
+import React from 'react';
 import {
+  ClockHistory,
   JournalArrowDown,
   JournalArrowUp,
-  ClockHistory,
-  Plus
-} from "react-bootstrap-icons";
+  Plus,
+  QrCodeScan,
+} from 'react-bootstrap-icons';
 
-import { MainMenu, OtherMenu } from "./components";
-import { HomeOthersMenu } from "@Data/Menus";
+import { HomeOthersMenu } from '@Data/Menus';
+import { MainMenu, OtherMenu } from './components';
 
 const Home = () => {
   return (
-    <div className="main-bg">
-      <Box alignItems="center" px="15px" my="10px" w="full">
-        <Input
-          active
-          w="full"
-          placeholder="Cari transaksi (nama / nomor bon)"
-          bgColor="muted.100"
-          h="40px"
-          InputRightElement={
-            <Icon
-              as={<MaterialCommunityIcons name="qrcode-scan" />}
-              size="20px"
-              color="black"
-              mr="2"
-              onPress={() => {}}
-            />
-          }
-          _focus={{
-            outlineColor: "muted.200",
-            borderColor: "muted.200"
-          }}
-          _input={{
-            outlineColor: "muted.200",
-            borderColor: "muted.200"
-          }}
-        />
-      </Box>
-      <ScrollView h="calc(100vh - 60px)" pb="76px">
+    <View h="100%" overflowY="hidden">
+      <VStack>
+        <Box alignItems="center" px="15px" my="10px" w="full">
+          <Input
+            active
+            w="full"
+            placeholder="Cari transaksi (nama / nomor bon)"
+            bgColor="muted.100"
+            h="40px"
+            InputRightElement={
+              <Pressable mr="16px" onPress={() => console.log('press')}>
+                <QrCodeScan size="16px" color="#000000" />
+              </Pressable>
+            }
+            _focus={{
+              outlineColor: 'muted.200',
+              borderColor: 'muted.200',
+            }}
+            _input={{
+              outlineColor: 'muted.200',
+              borderColor: 'muted.200',
+            }}
+          />
+        </Box>
+      </VStack>
+      <VStack h="calc(100vh - 12rem)" overflowY="auto">
         <Box px="15px" mt="20px">
           <HStack space="10px">
             <Avatar
@@ -105,9 +104,24 @@ const Home = () => {
         </Box>
         <Box pl="15px" mt="30px">
           <VStack space="10px">
-            <MainMenu label="Transaksi" bgColor="info.100" icon={<JournalArrowDown size={48} color="#0EA5E9" />} path="/transaksi" />
-            <MainMenu label="Pengambilan" bgColor="success.100" icon={<JournalArrowUp size={48} color="#22C55E" />} path="/pengambilan" />
-            <MainMenu label="Status" bgColor="orange.100" icon={<ClockHistory size={48} color="#F97316" />} path="/status" />
+            <MainMenu
+              label="Transaksi"
+              bgColor="info.100"
+              icon={<JournalArrowDown size={48} color="#0EA5E9" />}
+              path="/transaksi"
+            />
+            <MainMenu
+              label="Pengambilan"
+              bgColor="success.100"
+              icon={<JournalArrowUp size={48} color="#22C55E" />}
+              path="/pengambilan"
+            />
+            <MainMenu
+              label="Status"
+              bgColor="orange.100"
+              icon={<ClockHistory size={48} color="#F97316" />}
+              path="/status"
+            />
           </VStack>
         </Box>
 
@@ -117,7 +131,7 @@ const Home = () => {
               space="8px"
               display="flex"
               key={`col-${index}`}
-              mt={index > 0 ? "7.5px" : "0"}
+              mt={index > 0 ? '7.5px' : '0'}
             >
               {colMenu.map((menu, idx) => (
                 <OtherMenu
@@ -130,8 +144,33 @@ const Home = () => {
             </HStack>
           ))}
         </Box>
-      </ScrollView>
-      <Fab
+      </VStack>
+
+      <VStack my="16px">
+        <Box px="15px">
+          <Box display="flex" justifyContent="center" alignItems="center">
+            <Button
+              variant="solid"
+              w="fit-content"
+              borderRadius="42px"
+              bg="amber.300"
+              shadow='3'
+              _text={{ color: 'text.900' }}
+              onPress={() => {}}
+              _pressed={{
+                bg: 'amber.400',
+              }}
+            >
+              <HStack>
+                <View>
+                  <Plus size="22px" />
+                </View>
+                <Text>Transaksi Baru</Text>
+              </HStack>
+            </Button>
+          </Box>
+        </Box>
+        {/* <Fab
         renderInPortal={false}
         bgColor="yellow.300"
         shadow={2}
@@ -151,8 +190,9 @@ const Home = () => {
         _hover={{
           shadow: 3
         }}
-      />
-    </div>
+      /> */}
+      </VStack>
+    </View>
   );
 };
 

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { NativeBaseProvider, ScrollView } from "native-base";
+import { NativeBaseProvider } from "native-base";
 
 import {
   Login,
@@ -20,7 +20,6 @@ function App() {
       <Router>
         <NativeBaseProvider>
 
-          <ScrollView w={["100%", "100%"]}>
             <Routes>
               {/* Auth */}
               <Route path="/login" element={<Login />} />
@@ -35,7 +34,6 @@ function App() {
               <Route path="/pelanggan" element={<Pelanggan />} />
               <Route path="/pelanggan/:id" element={<PelangganDetail />} />
             </Routes>
-          </ScrollView>
         </NativeBaseProvider>
       </Router>
     </div>
